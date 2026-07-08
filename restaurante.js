@@ -105,7 +105,27 @@ function pedidoCliente(menu){
         }
 
     };
+
+    calcularCuenta(pedido);
    
 }
 
+
+function calcularCuenta(menu){
+   
+    const iva = 0.19
+    let subtotal = 0
+    
+    
+    for(let i = 0; i < menu.length; i++){
+        subtotal += menu[i].precio
+    }
+
+    const valorIva = subtotal * iva;
+    const total = subtotal + valorIva;
+
+    return total;
+}
+
 soloDisponibles(menu);
+
