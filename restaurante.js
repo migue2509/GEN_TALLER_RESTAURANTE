@@ -36,4 +36,20 @@ function mostrarMenu(menu){
     }
 };
 
-mostrarMenu(menu);
+function soloDisponibles(menu){
+
+    const menuSoloDisponibles = []
+
+    console.log("Platos Disponibles del Dia")
+
+    for (let i = 0; i < menu.length; i++){
+
+        if (menu[i].disponible === true){
+            menuSoloDisponibles.push(menu[i])
+        }
+    }
+
+    return menuSoloDisponibles;
+};
+
+mostrarMenu(soloDisponibles(menu));
