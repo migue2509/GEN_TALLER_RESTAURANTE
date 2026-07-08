@@ -11,7 +11,7 @@ const menu = [
         "nombre": "5 Patacones",
         "precio": 10000,
         "categoría": "Entrada",  
-        "disponible": true
+        "disponible": false
     },
      {
         "nombre": "Jugo de Maracuya",
@@ -27,4 +27,13 @@ const menu = [
     },
 ]
 
-console.log(menu[1].precio)
+
+// console.log(menu[1].precio)
+
+function mostrarMenu(menu){
+    for (let i = 0; i < menu.length; i++){
+        console.log(`Plato # ${i + 1} - Nombre: ${menu[i].nombre} - Precio: $ ${menu[i].precio}`);
+    }
+};
+
+mostrarMenu(menu);
