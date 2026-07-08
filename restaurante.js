@@ -49,7 +49,63 @@ function soloDisponibles(menu){
         }
     }
 
-    return menuSoloDisponibles;
+    pedidoCliente(menuSoloDisponibles);
 };
 
-mostrarMenu(soloDisponibles(menu));
+function pedidoCliente(menu){
+    // Pedido del cliente
+    const pedido = []
+    
+
+    while(true){
+
+        console.log("")
+        console.log("Menu del dia")
+
+        mostrarMenu(menu)
+
+        console.log("")
+        console.log(`Copia "Salir" para finalizar tu pedido`)   
+        console.log(`Copia "pedido" para ver tu pedido`)  
+        console.log(`Copia "eliminar" para la ultima seleccion`)
+        
+        const eleccion = prompt("Selecciona tu plato: ");
+
+
+        if(eleccion.toLowerCase() === "salir"){   
+            console.log("Saliste del programa");
+            break;
+        }else if(eleccion.toLocaleLowerCase() === "pedido"){
+            if(pedido.length > 0){
+                console.log(`Tu pedido es:`);
+                mostrarMenu(pedido);
+
+            }else{
+                console.log(`Tu pedido se encuentra vacio, no hay nada que mostrar`)
+            }
+        }else if(eleccion.toLowerCase() === "eliminar"){
+            if(pedido.length > 0){
+                const Platoeliminado = pedido.pop();
+                console.log(`Eliminaste: ${Platoeliminado.nombre}`)
+
+                console.log(`Pedido Completo:`);
+                mostrarMenu(pedido);
+
+            }else{
+                console.log(`Tu pedido se encuentra vacio, no se puede eliminar nada`)
+            }
+            
+        }else{
+            for (let i = 0; i < menu.length; i++){
+                if (Number(eleccion) === i + 1){
+                    pedido.push(menu[i])
+                    break;
+                }
+            };
+        }
+
+    };
+   
+}
+
+soloDisponibles(menu);
